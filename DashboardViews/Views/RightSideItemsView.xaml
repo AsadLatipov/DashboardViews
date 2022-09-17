@@ -6,7 +6,8 @@
              xmlns:local="clr-namespace:DashboardViews.Views"
              xmlns:src="clr-namespace:DashboardViews.ViewModels"
              mc:Ignorable="d" 
-             d:DesignHeight="360" d:DesignWidth="760">
+             d:DesignHeight="360" d:DesignWidth="760"
+             xmlns:interacitivy="http://schemas.microsoft.com/xaml/behaviors">
     
     <UserControl.Resources>
         <Style x:Key="borderstyle" TargetType="{x:Type Border}">
@@ -36,7 +37,7 @@
 
             <TextBlock 
                  Height="30"
-                 Text="Search"
+                 Text="{Binding Path=Hint, UpdateSourceTrigger=PropertyChanged}"
                  FontWeight="Light"
                  FontSize="15"
                  Padding="5 5 0 0"
@@ -46,19 +47,28 @@
 
 
             <TextBox 
-                 Text=""
                  Padding="2 5 0 0"
                  Height="30"
                  FontSize="15"
+                 Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"
                  Foreground="white"
-                 Background="Transparent"/>
+                 Background="Transparent">
+                
+                <interacitivy:Interaction.Triggers>
+                    <interacitivy:EventTrigger EventName="TextChanged">
+                        <interacitivy:InvokeCommandAction Command="{Binding Search}" CommandParameter="{Binding ElementName=SearchText}">
+
+                        </interacitivy:InvokeCommandAction>
+                    </interacitivy:EventTrigger>
+                </interacitivy:Interaction.Triggers>
+            </TextBox>
 
         </Grid>
 
         
 
         <ItemsControl
-              ItemsSource="{Binding InternalItems}">
+              ItemsSource="{Binding SearchItems}">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel Width="700" Height="270" Margin="0 20 0 0" Orientation="Horizontal" VerticalAlignment="Stretch" IsItemsHost="True" />

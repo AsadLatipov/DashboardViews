@@ -62,11 +62,11 @@ namespace DashboardViews.ViewModels
         }
 
 
-        private string _hint="Search";
+        private string _hint = "Search";
 
         public string Hint
         {
-            get { return _hint;; }
+            get { return _hint; }
             set { _hint = value; 
                 NotifyOfPropertyChange(() => Hint);
             }
@@ -184,34 +184,42 @@ namespace DashboardViews.ViewModels
             {
                 case "Home":
                     _rightSideElements.InternalItems = Items.Home;
+                    _rightSideElements.SearchItems = Items.Home;
                     Path = "Home";
                     break;
                 case "Desktop":
                     _rightSideElements.InternalItems = Items.Desktop;
+                    _rightSideElements.SearchItems = Items.Desktop;
                     Path = "Desktop";
                     break;
                 case "Document":
                     _rightSideElements.InternalItems = Items.Document;
+                    _rightSideElements.SearchItems = Items.Document;
                     Path = "Document";
                     break;
                 case "Download":
                     _rightSideElements.InternalItems = Items.Download;
+                    _rightSideElements.SearchItems = Items.Download;
                     Path = "Download";
                     break;
                 case "Picture":
                     _rightSideElements.InternalItems = Items.Picture;
+                    _rightSideElements.SearchItems = Items.Picture;
                     Path = "Picture";
                     break;
                 case "Music":
                     _rightSideElements.InternalItems = Items.Music;
+                    _rightSideElements.SearchItems = Items.Music;
                     Path = "Music";
                     break;
                 case "Movie":
                     _rightSideElements.InternalItems = Items.Movie;
+                    _rightSideElements.SearchItems = Items.Movie;
                     Path = "Movie";
                     break;
                 case "Trash":
                     _rightSideElements.InternalItems = Items.Trash;
+                    _rightSideElements.SearchItems = Items.Trash;
                     Path = "Trash";
                     break;
                 default:
